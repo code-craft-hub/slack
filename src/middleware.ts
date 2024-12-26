@@ -10,6 +10,8 @@ import {
    
   export default convexAuthNextjsMiddleware(async (request) => {
     console.log(await isAuthenticatedNextjs())
+   
+
     if(!isPublicPage(request) && !(await isAuthenticatedNextjs())) {
         return nextjsMiddlewareRedirect(request, "/auth");
     }
